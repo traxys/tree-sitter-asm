@@ -1,34 +1,26 @@
 [package]
 name = "tree-sitter-asm"
-description = "assembly grammar for the tree-sitter parsing library"
-authors = ["RubixDev"]
-version = "0.22.6"
-keywords = ["incremental", "parsing"]
-categories = ["parsing", "text-editors"]
-repository = "https://github.com/RubixDev/tree-sitter-asm"
-edition = "2018"
+description = "Asm grammar for tree-sitter"
+version = "0.0.1"
 license = "MIT"
+readme = "README.md"
+keywords = ["incremental", "parsing", "tree-sitter", "asm"]
+categories = ["parsing", "text-editors"]
+repository = "https://github.com/tree-sitter/tree-sitter-asm"
+edition = "2021"
+autoexamples = false
 
 build = "bindings/rust/build.rs"
-include = [
-  "bindings/rust/*",
-  "grammar.js",
-  "queries/*",
-  "src/*",
-]
-
-[features]
-default = ["tree-sitter-standard"]
-tree-sitter-standard = ["dep:tree-sitter-standard"]
-tree-sitter-c2rust = ["dep:tree-sitter-c2rust", "dep:tree-sitter-wasm-build-tool"]
+include = ["bindings/rust/*", "grammar.js", "queries/*", "src/*"]
 
 [lib]
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter-standard = { package = "tree-sitter", version = "0.22.6", optional = true }
-tree-sitter-c2rust = { version = "0.22.6", optional = true }
+tree-sitter-language = "0.1"
+
+[dev-dependencies]
+tree-sitter = { version = "0.22" }
 
 [build-dependencies]
-cc = "1.0"
-tree-sitter-wasm-build-tool = { version = "0.2.2", optional = true }
+cc = "1.0.87"
